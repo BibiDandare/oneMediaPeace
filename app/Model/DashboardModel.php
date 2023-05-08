@@ -4,37 +4,11 @@
 
     class DashboardModel
     {
-        private String $firstName;
-        private String $lastName;
         private $articles;
 
-        public function __construct(String $firstName="null", 
-                                    String $lastName="null",
-                                            $articles="null")
+        public function __construct($articles="null")
         {
-            $this->firstName = $firstName;
-            $this->lastName = $lastName;
             $this->articles = $articles;
-        }
-
-        public function getFirstName()
-        {
-            return $this->firstName;
-        }
-
-        public function setFirstName(String $firstName)
-        {
-            $this->firstName = $firstName;
-        }
-
-        public function getLastName()
-        {
-            return $this->firstName;
-        }
-
-        public function setLastName(String $firstName)
-        {
-            $this->firstName = $firstName;
         }
         
         public function getArticles()

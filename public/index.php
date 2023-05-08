@@ -46,9 +46,9 @@
                     <ul>
                         <li>
                             <!-- redirect to the dynamic dashboard -->
-                            <a href="?dashboard">
+                            <a href="?articles">
                                 <?php 
-                                    if(isset($_SESSION['username']))
+                                    if(!isset($_SESSION['username']))
                                     {
                                         echo "<span>Mes </span>";
                                     }
@@ -57,7 +57,17 @@
                             </a>
                         </li>
                         <?php
-                            if(isset($_SESSION['username']))
+                            if(!isset($_SESSION['username']))
+                            {
+                                echo "<li>
+                                        <a href='?articleWriting'>
+                                            Écrire un article
+                                        </a>
+                                    </li>";
+                            }
+                        ?>
+                        <?php
+                            if(!isset($_SESSION['username']))
                             {
                                 echo "<li>
                                         <a>
@@ -87,9 +97,11 @@
                     }
                     
                     //redirection toward the right page
-                    $routes = array('' => "../app/Controller/DashboardController.php",//we should have the dynamic dahsboard here
+                    $routes = array('' => "../app/Controller/DashboardController.php",
                              "sign-in" => "../app/Controller/Login.php",
-                           "dashboard" => "../app/Controller/DashboardController.php"
+                           "dashboard" => "../app/Controller/DashboardController.php",
+                      "articleWriting" => "../app/Controller/ArticleWriting.php",
+                            "articles" => "../app/Controller/ArticleController.php"
                     );
 
                     if (array_key_exists($url, $routes)) {

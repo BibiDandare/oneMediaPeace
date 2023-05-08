@@ -13,26 +13,22 @@
 
         class DashboardView
         {
-            private String $firstName;
-            private String $lastName;
             private $articles;
             
             public function __construct(DashboardModel $dasboard)
             {
-                $this->firstName = $dasboard->getFirstName();
-                $this->lastName = $dasboard->getLastName();
                 $this->articles = $dasboard->getArticles();
             }
 
-            public function printUser()
-            {
-                echo "<div class=user_name>";
-                    if ($this->firstName != null && $this->lastName != null)
-                    {
-                        echo "Logged as "."<b>".$this->firstName.' '.$this->lastName."</b>";
-                    }
-                echo "</div>";
-            }                
+            // public function printUser()
+            // {
+            //     echo "<div class=user_name>";
+            //         if ($this->firstName != null && $this->lastName != null)
+            //         {
+            //             echo "Logged as "."<b>".$this->firstName.' '.$this->lastName."</b>";
+            //         }
+            //     echo "</div>";
+            // }                
 
             public function printView()
             {

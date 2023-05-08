@@ -71,6 +71,9 @@ main
 {
     /* float: right; */
     margin: 0 auto;
+    margin-right: 150px;
+    /* margin-left: 10px; */
+    margin-top: 5%;  /*abaisse de 5% le contenue par rapport au header*/
 }
 nav
 {
@@ -79,6 +82,8 @@ nav
     width: 100%;
     height: 70px;
     transform: translateY(-50%);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 15px;
 }
 nav ul
 {
@@ -86,6 +91,7 @@ nav ul
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
 }
   
 nav ul li
@@ -103,9 +109,10 @@ nav ul li a
     transition: all 0.2s ease-in-out;
 }
   
-nav ul li a:hover {
+nav ul li a:hover 
+{
     color: #e74c3c;
-  }
+}
 /***************************** END OF NAVIGATION *****************************/
 
 
@@ -142,7 +149,7 @@ footer
 {
     max-width: 450px;
     margin:15% auto 0;
-    background-color: rgb(105, 94, 81);
+    background-color: rgb(105, 94, 81); /*charte graphique*/
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -154,7 +161,7 @@ footer
 {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold
+    font-weight: bold;
 }
   
 .loginForm input[type="text"],
@@ -214,3 +221,89 @@ footer
     display: inline-block;
 }
 /***************************** END OF LOGIN FORM *****************************/
+
+/******************************* ARTICLE VIEWING *****************************/
+
+.articleDisplay
+{
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.articleDetails
+{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+/************************** END OF ARTICLE VIEWING ***************************/
+
+
+
+/******************************* ARTICLE WRITING *****************************/
+
+.articleWritingForm
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(105, 94, 81);
+    border-radius: 30px;
+
+
+}
+  
+.articleWritingForm label
+{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+  
+.articleWritingForm input[type="text"], textarea
+{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(113, 81, 38);
+}
+  
+.articleWritingForm  input[type="submit"]
+{
+    background-color: rgb(154, 113, 59);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+  
+.articleWritingForm input[type="submit"]:hover
+{
+    background-color: rgb(113, 81, 38);
+}
+  
+
+/************************** END OF ARTICLE WRITING ***************************/
+
+
+
+/****************************** COMMENT DISPLAY*******************************/
+
+.commentDisplay
+{
+    float: left;
+}
+
+/**************************** END OF COMMENT DISPLAY**************************/
