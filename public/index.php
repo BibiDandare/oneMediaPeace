@@ -45,6 +45,11 @@
                     de compte -->
                     <ul>
                         <li>
+                            <a href="/">
+                                Tableau de bord
+                            </a>
+                        </li>
+                        <li>
                             <!-- redirect to the dynamic dashboard -->
                             <a href="?articles">
                                 <?php 
@@ -97,11 +102,12 @@
                     }
                     
                     //redirection toward the right page
-                    $routes = array('' => "../app/Controller/DashboardController.php",
-                             "sign-in" => "../app/Controller/Login.php",
-                           "dashboard" => "../app/Controller/DashboardController.php",
-                      "articleWriting" => "../app/Controller/ArticleWriting.php",
-                            "articles" => "../app/Controller/ArticleController.php"
+                    $routes = array(
+                             '' => "../app/Controller/DashboardController.php",
+                      "sign-in" => "../app/Controller/Login.php",
+                    "dashboard" => "../app/Controller/DashboardController.php",
+                    "articleWriting" => "../app/Controller/ArticleWriting.php",
+                     "articles" => "../app/Controller/ArticleController.php"
                     );
 
                     if (array_key_exists($url, $routes)) {
@@ -112,7 +118,7 @@
                         // require '404.php';
                         header("HTTP/1.0 404 Not Found");
                         echo "Désolé, la page que vous recherchez est 
-                                                        introuvable.";
+                        introuvable.";
                     }
                 ?>
             </div>
@@ -120,7 +126,7 @@
         <footer>
             <p class="footer">
             Copyright &copy; <time datetime="2023">2023</time>
-            - Made by Biram HABIBOULAYE DAN DARE for <a href="">ESGI School</a> 
+            - Made by Biram HABIBOULAYE DAN DARE for <a href="">ESGI School</a>
             - <a class="link" href=""> Mentions légales</a>
             <br>
             Contact:<a class="mail" href="mailto:bhabiboulayedandare@myges.fr">

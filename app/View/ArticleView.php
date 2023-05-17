@@ -55,10 +55,17 @@
             {                
                 case "allowed":
                     //echo $this->text;
-                    echo "<div class='articleDetails'>Title : ".$this->title.", Author : ".$this->firstName.
-                    " ".$this->lastName.", Date : " .$this->creationDate."</div>";
+                    echo "<div class='articleDetails'>Title : ".$this->title.
+                    ", Author : ".$this->firstName." ".$this->lastName.
+                    ", Date : " .$this->creationDate."</div>";
+
                     echo "<div class='articleDisplay'>".$textExemple."</div>";
-                    echo "<button class='commentDisplay'>Afficher les commentaires</button>";
+
+                    echo "<button id = 'commentsDiplayButton' class=
+                    'commentDisplay'>Afficher les commentaires</button>";
+
+                    echo "<button id = 'commentsDiplayButton' class=
+                    'commentDisplay'>Commenter</button>";
                     break;
                 case "denied":
                     echo "Cet article ne peut pas être affiché (refusé)";
