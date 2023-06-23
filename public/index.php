@@ -5,7 +5,7 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
-        <title>blog</title>
+        <title>OneMediaPeace</title>
     </head>
 
     <body>
@@ -34,7 +34,7 @@
                                         <a href='?sign-in'>Sign in</a>
                                     </div>
                                     <div class='signUpButton'>
-                                        <a>Sign up</a>
+                                        <a href='?sign-up'>Sign up</a>
                                     </div>
                                 </div>";
                                
@@ -105,12 +105,14 @@
                     $routes = array(
                              '' => "../app/Controller/DashboardController.php",
                       "sign-in" => "../app/Controller/Login.php",
+                      "sign-up" => "../app/Controller/Inscription.php",
                     "dashboard" => "../app/Controller/DashboardController.php",
                     "articleWriting" => "../app/Controller/ArticleWriting.php",
                      "articles" => "../app/Controller/ArticleController.php"
                     );
 
-                    if (array_key_exists($url, $routes)) {
+                    if (array_key_exists($url, $routes))
+                    {
                         require_once $routes[$url];
                     }
                     else 

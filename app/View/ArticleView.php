@@ -1,6 +1,9 @@
 <?php
+    //require_once("../Model/ArticleModel.php");
+
     class ArticleView
     {
+        /*
         private String $firstName;
         private String $lastName;
         private String $status;
@@ -9,18 +12,14 @@
         private $comments;
         private String $creationDate;
         private String $modificationDate;
+        */
+        private ArticleModel $article;
 
         //passer l'object en paramètre du constructeur
         public function __construct(ArticleModel $article)
         {
-            $this->firstName = $article->getFirstName();
-            $this->lastName = $article->getLastName();
-            $this->text = $article->getText();
-            $this->status = $article->getStatus();
-            $this->comments = $article->getComments();
-            $this->title = $article->getTitle();
-            $this->creationDate = $article->getCreationDate();
-            $this->modificationDate = $article->getModificationDate();
+            $this->article = $article;
+            
         }
 
         public function printView()
@@ -54,18 +53,21 @@
             switch($this->status)
             {                
                 case "allowed":
-                    //echo $this->text;
-                    echo "<div class='articleDetails'>Title : ".$this->title.
-                    ", Author : ".$this->firstName." ".$this->lastName.
-                    ", Date : " .$this->creationDate."</div>";
+                    if($this->article->getActive())
+                    {
+                        //echo $this->text;
+                        echo "<div class='articleDetails'>Title : ".$this->title.
+                        ", Author : ".$this->firstName." ".$this->lastName.
+                        ", Date : " .$this->creationDate."</div>";
 
-                    echo "<div class='articleDisplay'>".$textExemple."</div>";
+                        echo "<div class='articleDisplay'>".$textExemple."</div>";
 
-                    echo "<button id = 'commentsDiplayButton' class=
-                    'commentDisplay'>Afficher les commentaires</button>";
+                        echo "<button id = 'commentsDiplayButton' class=
+                        'commentDisplay'>Afficher les commentaires</button>";
 
-                    echo "<button id = 'commentsDiplayButton' class=
-                    'commentDisplay'>Commenter</button>";
+                        echo "<button id = 'commentsDiplayButton' class=
+                        'commentDisplay'>Commenter</button>";
+                    }
                     break;
                 case "denied":
                     echo "Cet article ne peut pas être affiché (refusé)";

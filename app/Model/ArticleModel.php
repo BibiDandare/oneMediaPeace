@@ -3,10 +3,14 @@
 
     class ArticleModel
     {
-        private String $id;
-        private String $firstName; //replace by Account
-        private String $lastName; //replace too
+        private static int $id;
+       // private String $firstName; //replace by Account
+        //private String $lastName; //replace too
+        private $AccountModel;
         private String $status = "allowed"; //allowed, denied, deleted, banned
+        private bool $deleted = false;
+        private bool $active = true;
+        private bool $modarated = false;
         private String $text;
         private $comments;
         private String $title;
@@ -108,6 +112,66 @@
         public function setModificationDate($modificationDate)
         {
             $this->modificationDate = $modificationDate;
+        }
+
+        /**
+         * Get the value of deleted
+         */ 
+        public function getDeleted()
+        {
+            return $this->deleted;
+        }
+
+        /**
+         * Set the value of deleted
+         *
+         * @return  self
+         */ 
+        public function setDeleted($deleted)
+        {
+            $this->deleted = $deleted;
+
+            return $this;
+        }
+
+        /**
+         * Get the value of active
+         */ 
+        public function getActive()
+        {
+                return $this->active;
+        }
+
+        /**
+         * Set the value of active
+         *
+         * @return  self
+         */ 
+        public function setActive($active)
+        {
+                $this->active = $active;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of modarated
+         */ 
+        public function getModarated()
+        {
+                return $this->modarated;
+        }
+
+        /**
+         * Set the value of modarated
+         *
+         * @return  self
+         */ 
+        public function setModarated($modarated)
+        {
+                $this->modarated = $modarated;
+
+                return $this;
         }
     }
 ?>

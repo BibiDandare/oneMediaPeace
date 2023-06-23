@@ -1,6 +1,7 @@
 <?php
     require_once "../app/Model/ArticleModel.php";
     require_once "../app/View/ArticleView.php";
+    require_once "../app/Model/AccountModel.php";
 
     class ArticleController
     {

@@ -10,7 +10,8 @@
         //use Models\DashboardModel;
 
         public function handle()
-        {
+        {   // passé en paramètres du DashboardModel un tableau contenant les
+            // articles les plus récents de la base de données
             $d = new DashboardModel();
             $d_view = new DashboardView($d);
             $d_view->printView();
