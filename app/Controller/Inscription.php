@@ -32,7 +32,10 @@
         {
             // redirection vers le dashboard
             
-
+            $_SESSION['signInUsername'] = $_POST['signInUsername'];
+            $_SESSION['signInPassword'] = $_POST['signInPassword'];
+            $_SESSION['email'] = $_POST['email'];
+            
             echo "<div class='inscriptionPassed'>Votre inscription à 
                    bien été prise en compte</div>";
             echo "<br>";

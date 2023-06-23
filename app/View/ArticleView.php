@@ -50,35 +50,35 @@
             anglaise. L'influence des Simpson s'exerce également sur d'autres 
             sitcoms.";
 
-            switch($this->status)
-            {                
-                case "allowed":
-                    if($this->article->getActive())
-                    {
-                        //echo $this->text;
-                        echo "<div class='articleDetails'>Title : ".$this->title.
-                        ", Author : ".$this->firstName." ".$this->lastName.
-                        ", Date : " .$this->creationDate."</div>";
+            //switch($this->status)
+            // {                
+                //case "allowed":
+            if($this->article->getActive())
+            {
+                //echo $this->text;
+                echo "<div class='articleDetails'>Title : "
+                .$this->article->getTitle().
+                ", Author : ".$this->article->getAccount()->getUsername()." ".
+                ", Date : " .$this->article->getCreationDate()."</div>";
 
-                        echo "<div class='articleDisplay'>".$textExemple."</div>";
+                echo "<div class='articleDisplay'>".$textExemple."</div>";
 
-                        echo "<button id = 'commentsDiplayButton' class=
-                        'commentDisplay'>Afficher les commentaires</button>";
+                echo "<button id = 'commentsDiplayButton' class=
+                'commentDisplay'>Afficher les commentaires</button>";
 
-                        echo "<button id = 'commentsDiplayButton' class=
-                        'commentDisplay'>Commenter</button>";
-                    }
-                    break;
-                case "denied":
-                    echo "Cet article ne peut pas être affiché (refusé)";
-                    break;
-                case "deleted":
-                    echo "Cet article à été supprimé";
-                    break;
-                default:
-                    //echo $this->text;
-                    echo "Cet article ne peut pas être affiché";
+                echo "<button id = 'commentsDiplayButton' class=
+                'commentDisplay'>Commenter</button>";
             }
+
+            else if($this->article->getModerated())
+            {
+                echo "Cet article ne peut pas être affiché (refusé)";
+            }
+            else if($this->article->getDeleted())
+            {
+                echo "Cet article à été supprimé";
+            }
+
             
         }
 

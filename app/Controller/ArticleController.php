@@ -7,7 +7,20 @@
     {
         public function handle()
         {
-            $a = new ArticleModel();
+            if(isset($_SESSION['signInUsername']) && isset($_SESSION['email'])
+                     && isset($_SESSION['signInPassword']))
+            {
+                $account = new AccountModel($_SESSION['email'], 
+                                   $_SESSION['signInUsername'],
+                                   $_SESSION['signInPassword']);
+            }
+            else
+            {
+                $account = new AccountModel("biramdandare@icloud.com", 
+                                        "bibi", "bibi");
+            }
+
+            $a = new ArticleModel($account);
             $a_view = new ArticleView($a);
             $a_view->printView();
         }

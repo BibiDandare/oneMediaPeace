@@ -1,7 +1,7 @@
 <?php
     class AccountModel
     {
-        private static int $id;
+        private static int $id = 0;
         private String $email;
         private String $password; // dangerous??
         private String $username;
@@ -9,8 +9,8 @@
         private bool $status; // active / banned
         private String $account_rights; //user / administrator / moderator
 
-        public function __construct(String $email, String $password,
-                                    String $username)
+        public function __construct(String $email, String $username,
+                                    String $password)
         {
             $this->username = $username;
             $this->email = $email;
@@ -20,7 +20,7 @@
             
 
             //$this->id++;
-            self::id++;
+            self::$id++;
 
             $this->creationDate = date('m/d/Y h:i:s a', time());
         }
@@ -32,7 +32,7 @@
          */ 
         public function getId()
         {
-            return $this->id;
+            return self::$id;
         }
 
         /**

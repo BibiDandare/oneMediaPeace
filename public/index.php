@@ -53,7 +53,7 @@
                             <!-- redirect to the dynamic dashboard -->
                             <a href="?articles">
                                 <?php 
-                                    if(!isset($_SESSION['username']))
+                                    if(isset($_SESSION['signInUsername']))
                                     {
                                         echo "<span>Mes </span>";
                                     }
@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <?php
-                            if(!isset($_SESSION['username']))
+                            if(isset($_SESSION['signInUsername']))
                             {
                                 echo "<li>
                                         <a href='?articleWriting'>
@@ -72,7 +72,7 @@
                             }
                         ?>
                         <?php
-                            if(!isset($_SESSION['username']))
+                            if(isset($_SESSION['signInUsername']))
                             {
                                 echo "<li>
                                         <a>

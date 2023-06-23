@@ -3,14 +3,14 @@
 
     class ArticleModel
     {
-        private static int $id;
+        private static int $id = 0;
        // private String $firstName; //replace by Account
         //private String $lastName; //replace too
-        private $AccountModel;
+        private AccountModel $account;
         private String $status = "allowed"; //allowed, denied, deleted, banned
         private bool $deleted = false;
         private bool $active = true;
-        private bool $modarated = false;
+        private bool $moderated = false;
         private String $text;
         private $comments;
         private String $title;
@@ -24,6 +24,7 @@
         //donc pas de ' =null '
 
         //réajuster le controlleur selon les nouveau attribut
+        /*
         public function __construct(String $firstName="user", String $lastName="user", 
                                     String $text="", String $title="userTitle")
         {
@@ -34,7 +35,18 @@
 
             $this->creationDate = date('m/d/Y h:i:s a', time());
         }
+        */
+        public function __construct(AccountModel $account, String $text="", 
+                                                String $title="userTitle")
+        {
+            $this->account = $account;
+            $this->title = $title;
+            $this->text = $text;
 
+            self::$id++;
+            $this->creationDate = date('m/d/Y h:i:s a', time());
+        }
+        /*
         public function getFirstName()
         {
             return $this->firstName;
@@ -54,6 +66,7 @@
         {
             $this->firstName = $firstName;
         }
+        */
 
         public function getText()
         {
@@ -71,12 +84,12 @@
         {
             return $this->status;
         }
-
+        /*
         public function setStatus($status)
         {
             $this->status = $status;
         }
-
+        */
         public function getComments()
         {
             return $this->comments;
@@ -84,7 +97,7 @@
 
         public function getId()
         {
-            return $this->id;
+            return self::$id;
         }
 
         public function getTitle()
@@ -157,7 +170,7 @@
         /**
          * Get the value of modarated
          */ 
-        public function getModarated()
+        public function getModerated()
         {
                 return $this->modarated;
         }
@@ -167,11 +180,19 @@
          *
          * @return  self
          */ 
-        public function setModarated($modarated)
+        public function setModerated($modarated)
         {
                 $this->modarated = $modarated;
 
                 return $this;
+        }
+
+        /**
+         * Get the value of account
+         */ 
+        public function getAccount()
+        {
+                return $this->account;
         }
     }
 ?>
