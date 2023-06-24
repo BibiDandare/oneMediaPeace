@@ -1,4 +1,5 @@
 <?php
+    //session_start();
 
     require_once "../app/Model/AccountModel.php";
     //echo "here";
@@ -7,11 +8,12 @@
     {
         public function handle()
         {
-            $account = new AccountModel($_POST['email'],
+            $account = new AccountModel($_POST['signInEmail'],
                                $_POST['signInPassword'], 
                               $_POST['signInUsername']);
 
-            require_once "../DAO/AccountDAO.php";
+            
+            require_once "../DAO/InscriptionDAO.php";
             
         }
 

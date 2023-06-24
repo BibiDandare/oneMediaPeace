@@ -4,18 +4,20 @@
     class ArticleModel
     {
         private static int $id = 0;
+        private int $tpm_id;
        // private String $firstName; //replace by Account
         //private String $lastName; //replace too
         private AccountModel $account;
-        private String $status = "allowed"; //allowed, denied, deleted, banned
+        //private String $status = "allowed"; //allowed, denied, deleted, banned
         private bool $deleted = false;
-        private bool $active = true;
+        private bool $active = false;
         private bool $moderated = false;
+        private bool $public = true;
         private String $text;
         private $comments;
         private String $title;
         private String $creationDate;
-        private String $modificationDate;
+        private String $modificationDate = "";
         //TODO
         //mettre une date comme attribut
         //à la place de first and last name, mettre un attribut de type Account et remplacer aussi dans le controleur 
@@ -45,6 +47,8 @@
 
             self::$id++;
             $this->creationDate = date('m/d/Y h:i:s a', time());
+            $this->modificationDate = date('m/d/Y h:i:s a', time());
+
         }
         /*
         public function getFirstName()
@@ -155,34 +159,23 @@
                 return $this->active;
         }
 
-        /**
-         * Set the value of active
-         *
-         * @return  self
-         */ 
-        public function setActive($active)
-        {
-                $this->active = $active;
-
-                return $this;
-        }
 
         /**
          * Get the value of modarated
          */ 
         public function getModerated()
         {
-                return $this->modarated;
+                return $this->moderated;
         }
 
         /**
-         * Set the value of modarated
+         * Set the value of modareted
          *
          * @return  self
          */ 
-        public function setModerated($modarated)
+        public function setModerated($moderated)
         {
-                $this->modarated = $modarated;
+                $this->moderated = $moderated;
 
                 return $this;
         }
@@ -193,6 +186,70 @@
         public function getAccount()
         {
                 return $this->account;
+        }
+
+        /**
+         * Get the value of public
+         */ 
+        public function getPublic()
+        {
+                return $this->public;
+        }
+
+        /**
+         * Set the value of public
+         *
+         * @return  self
+         */ 
+        public function setPublic($public)
+        {
+                $this->public = $public;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of tpm_id
+         */ 
+        public function getTpm_id()
+        {
+                return $this->tpm_id;
+        }
+
+        /**
+         * Set the value of tpm_id
+         *
+         * @return  self
+         */ 
+        public function setTpm_id($tpm_id)
+        {
+                $this->tpm_id = $tpm_id;
+
+                return $this;
+        }
+
+        /**
+         * Set the value of creationDate
+         *
+         * @return  self
+         */ 
+        public function setCreationDate($creationDate)
+        {
+                $this->creationDate = $creationDate;
+
+                return $this;
+        }
+
+        /**
+         * Set the value of active
+         *
+         * @return  self
+         */ 
+        public function setActive($active)
+        {
+                $this->active = $active;
+
+                return $this;
         }
     }
 ?>

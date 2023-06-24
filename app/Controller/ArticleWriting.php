@@ -11,6 +11,9 @@
 </div>
 
 <?php
+    require_once("../app/Model/ArticleModel.php");
+    require_once("../app/Model/AccountModel.php");
+
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $title = $_POST["articleWritingTitle"];
@@ -22,7 +25,12 @@
         }
         else
         {
-            //create new ArticleModel
+            $account = unserialize($_SESSION['currentAccount']);
+
+            $article = new ArticleModel($account, $_POST['articleWritingText'],
+                                            $_POST['articleWritingTitle']);
+            require("../DAO/ArticleRegisterDAO.php");
+            //require_once("ArticleController.php");
             //save in the database, and add to Account articles[]
     
             echo "L'article ".$title." a bien été publié ✅";

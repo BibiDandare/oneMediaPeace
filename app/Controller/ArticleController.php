@@ -7,22 +7,50 @@
     {
         public function handle()
         {
-            if(isset($_SESSION['signInUsername']) && isset($_SESSION['email'])
-                     && isset($_SESSION['signInPassword']))
+            if(isset($_SESSION['username']))
             {
+                /*
                 $account = new AccountModel($_SESSION['email'], 
-                                   $_SESSION['signInUsername'],
-                                   $_SESSION['signInPassword']);
-            }
-            else
-            {
-                $account = new AccountModel("biramdandare@icloud.com", 
-                                        "bibi", "bibi");
+                                   $_SESSION['username'],
+                                   $_SESSION['password']);
+                */
+
+                // aller cherchez tous les articles dans la base de données
+                $account = unserialize($_SESSION['currentAccount']);
+
+                $articles = [];
+
+                require_once("../DAO/ArticleSearchDAO.php");
+
+                //print_r($articles);
+                if(!empty($articles))
+                {
+                    foreach($articles as $a)
+                    {
+                        $a_view = new ArticleView($a);
+                        $a_view->printView();
+                    }
+                }
+                else
+                {
+                    echo "Vous n'avez écris aucun article pour le moment ✍️...";
+                }
             }
 
-            $a = new ArticleModel($account);
-            $a_view = new ArticleView($a);
-            $a_view->printView();
+            /*
+            else
+            {   
+                
+                $account = new AccountModel("test@test.com", 
+                                        "userTest", "useTest");
+                
+
+            }
+            */
+            /*
+            $a = new ArticleModel($account, $_POST['articleWritingText'],
+                                            $_POST['articleWritingTitle']);
+            */
         }
     }
 

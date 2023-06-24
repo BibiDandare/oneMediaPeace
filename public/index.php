@@ -24,8 +24,15 @@
                 <?php
                     if(isset($_SESSION['username']))
                     {
-                        echo ""; //doit montrer le boutton se déconnecter,
-                                 // et montrer le nom de la personne connecter
+                        echo " <div>
+                                    <div class='usernameView'>
+                                      ". $_SESSION['username']."
+                                    </div>
+                                    <div class='signUpButton'>
+                                        <a href='?sign-out'>Sign out</a>
+                                    </div>
+                                </div>";
+                               
                     }
                     else
                     {
@@ -53,16 +60,15 @@
                             <!-- redirect to the dynamic dashboard -->
                             <a href="?articles">
                                 <?php 
-                                    if(isset($_SESSION['signInUsername']))
+                                    if(isset($_SESSION['username']))
                                     {
-                                        echo "<span>Mes </span>";
+                                        echo "<span>Mes articles</span>";
                                     }
                                 ?>
-                                Articles
                             </a>
                         </li>
                         <?php
-                            if(isset($_SESSION['signInUsername']))
+                            if(isset($_SESSION['username']))
                             {
                                 echo "<li>
                                         <a href='?articleWriting'>
@@ -72,7 +78,7 @@
                             }
                         ?>
                         <?php
-                            if(isset($_SESSION['signInUsername']))
+                            if(isset($_SESSION['username']))
                             {
                                 echo "<li>
                                         <a>
@@ -102,10 +108,13 @@
                     }
                     
                     //redirection toward the right page
+
+                    // faire une route/fichier pour le boutton sign out
                     $routes = array(
                              '' => "../app/Controller/DashboardController.php",
                       "sign-in" => "../app/Controller/Login.php",
                       "sign-up" => "../app/Controller/Inscription.php",
+                     "sign-out" => "../app/Controller/Disconnect.php",
                     "dashboard" => "../app/Controller/DashboardController.php",
                     "articleWriting" => "../app/Controller/ArticleWriting.php",
                      "articles" => "../app/Controller/ArticleController.php"

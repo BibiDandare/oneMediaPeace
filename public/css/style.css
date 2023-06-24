@@ -366,3 +366,16 @@ footer a:hover
 }
 
 /**************************** END OF COMMENT DISPLAY**************************/
+
+
+/****************************  USERNAME DETAILS ******************************/
+.usernameView
+{
+    background-color: rgb(204, 204, 204);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+/**************************** END OF USERNAME DETAILS ************************/

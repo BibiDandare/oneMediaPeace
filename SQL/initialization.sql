@@ -5,46 +5,35 @@ CREATE TABLE Account (
     creation_date DATE,
     username VARCHAR(255),
     account_rights VARCHAR(255),
-    account_status VARCHAR(255)
+    banned BOOLEAN,
+    reported BOOLEAN,
+    active BOOLEAN /* new */
 );
 
-CREATE TABLE User (
-    id INT PRIMARY KEY,
-    account_id INT,
-    FOREIGN KEY (account_id) REFERENCES Account(id)
-);
 
 CREATE TABLE Article (
     id INT PRIMARY KEY,
-    user_id INT,
+    account_id INT,
     title VARCHAR(255),
     content TEXT,
     creation_date DATE,
     modification_date DATE,
-    article_status VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES User(id)
+    moderated BOOLEAN,
+    deleted BOOLEAN,
+    public BOOLEAN, /* new */
+    active BOOLEAN, /* new */
+    FOREIGN KEY (account_id) REFERENCES Account(id)
 );
 
 CREATE TABLE Comment (
     id INT PRIMARY KEY,
-    user_id INT,
+    account_id INT,
     article_id INT,
     content TEXT,
     creation_date DATE,
     modification_date DATE,
-    comment_status VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES User(id),
+    moderated BOOLEAN,
+    deleted BOOLEAN,
+    FOREIGN KEY (account_id) REFERENCES Account(id),
     FOREIGN KEY (article_id) REFERENCES Article(id)
-);
-
-CREATE TABLE BannedAccount (
-    id INT PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES User(id)
-);
-
-CREATE TABLE ReportedAccount (
-    id INT PRIMARY KEY,
-    user_id INT,
-    FOREIGN KEY (user_id) REFERENCES User(id)
 );

@@ -53,7 +53,7 @@
             //switch($this->status)
             // {                
                 //case "allowed":
-            if($this->article->getActive())
+            if(!$this->article->getDeleted() && !$this->article->getModerated())
             {
                 //echo $this->text;
                 echo "<div class='articleDetails'>Title : "
@@ -61,7 +61,7 @@
                 ", Author : ".$this->article->getAccount()->getUsername()." ".
                 ", Date : " .$this->article->getCreationDate()."</div>";
 
-                echo "<div class='articleDisplay'>".$textExemple."</div>";
+                echo "<div class='articleDisplay'>".$this->article->getText()."</div>";
 
                 echo "<button id = 'commentsDiplayButton' class=
                 'commentDisplay'>Afficher les commentaires</button>";
