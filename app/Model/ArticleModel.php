@@ -4,7 +4,7 @@
     class ArticleModel
     {
         private static int $id = 0;
-        private int $tpm_id;
+        private int $tmp_id;
        // private String $firstName; //replace by Account
         //private String $lastName; //replace too
         private AccountModel $account;
@@ -17,7 +17,7 @@
         private $comments;
         private String $title;
         private String $creationDate;
-        private String $modificationDate = "";
+        private String $modificationDate;
         //TODO
         //mettre une date comme attribut
         //à la place de first and last name, mettre un attribut de type Account et remplacer aussi dans le controleur 
@@ -209,21 +209,21 @@
         }
 
         /**
-         * Get the value of tpm_id
+         * Get the value of tmp_id
          */ 
-        public function getTpm_id()
+        public function getTmp_id()
         {
-                return $this->tpm_id;
+                return $this->tmp_id;
         }
 
         /**
-         * Set the value of tpm_id
+         * Set the value of tmp_id
          *
          * @return  self
          */ 
-        public function setTpm_id($tpm_id)
+        public function setTmp_id($tmp_id)
         {
-                $this->tpm_id = $tpm_id;
+                $this->tmp_id = $tmp_id;
 
                 return $this;
         }

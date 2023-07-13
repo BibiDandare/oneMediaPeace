@@ -51,12 +51,12 @@
                     <!-- faire des if pour rajouter certain trucs selon le type
                     de compte -->
                     <ul>
-                        <li>
+                        <li class='navOptions'>
                             <a href="/">
                                 Tableau de bord
                             </a>
                         </li>
-                        <li>
+                        <li class='navOptions'>
                             <!-- redirect to the dynamic dashboard -->
                             <a href="?articles">
                                 <?php 
@@ -70,7 +70,7 @@
                         <?php
                             if(isset($_SESSION['username']))
                             {
-                                echo "<li>
+                                echo "<li class='navOptions'>
                                         <a href='?articleWriting'>
                                             Écrire un article
                                         </a>
@@ -80,7 +80,7 @@
                         <?php
                             if(isset($_SESSION['username']))
                             {
-                                echo "<li>
+                                echo "<li class='navOptions'>
                                         <a>
                                             Paramètres du compte
                                         </a>
@@ -117,7 +117,8 @@
                      "sign-out" => "../app/Controller/Disconnect.php",
                     "dashboard" => "../app/Controller/DashboardController.php",
                     "articleWriting" => "../app/Controller/ArticleWriting.php",
-                     "articles" => "../app/Controller/ArticleController.php"
+                     "articles" => "../app/Controller/ArticleController.php",
+                     "comment"  => "../app/Controller/CommentController.php"
                     );
 
                     if (array_key_exists($url, $routes))
@@ -144,5 +145,6 @@
             bhabiboulayedandare@myges.fr</a>
             </p>
         </footer>
+        <script src="../js/commentDisplay.js"></script>
     </body>
 </html>

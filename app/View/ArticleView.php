@@ -1,5 +1,5 @@
 <?php
-    //require_once("../Model/ArticleModel.php");
+    require_once("../app/Model/CommentModel.php");
 
     class ArticleView
     {
@@ -27,6 +27,8 @@
             //TOTO
             //ne pas afficher si l'article n'est pas validé par un modérateur
             //le faire dans le controller
+
+            $_SESSION['currentArticle'] = serialize($this->article);
 
             $textExemple = "Les Simpson (The Simpsons) sont une série télévisée
             d'animation américaine1 créée par Matt Groening et diffusée pour la
@@ -64,12 +66,29 @@
                 echo "<div class='articleDisplay'>".$this->article->getText()."</div>";
 
                 echo "<button id = 'commentsDiplayButton' class=
-                'commentDisplay'>Afficher les commentaires</button>";
+                'comment'>Afficher les commentaires";
+                echo "<div id='commentDiv' class='commentDiv'>";
+                require_once("../app/Controller/CommentController.php");
+                echo "</div></button>";
 
-                echo "<button id = 'commentsDiplayButton' class=
+                echo "<button id = 'commentsButton' class=
                 'commentDisplay'>Commenter</button>";
-            }
 
+                echo "<div class='commentForm'>
+                        <textarea name='commentWritingText' placeholder='Ajouter un commentaire'></textarea>
+                        <button class='submitComment'>Publier</button>
+                     </div>";
+                //faire une classe CommentWriting qui va réceptionner le formulaire, puis appeler
+                //CommentRegisterDAO.php
+                require_once("../DAO/CommentRegisterDAO.php");
+
+            }
+            /*
+            else if(!$this->article->getDeleted() && !$this->article->getModerated())
+            {
+                echo "Cet article est privé, veuillez vous connecté pour le voir";
+            }
+            */
             else if($this->article->getModerated())
             {
                 echo "Cet article ne peut pas être affiché (refusé)";

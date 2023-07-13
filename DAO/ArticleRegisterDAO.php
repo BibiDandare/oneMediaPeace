@@ -1,7 +1,5 @@
 <?php
-    //echo "connexion réussie";
     
-    // connexion database
     $dsn = 'mysql:host=localhost;dbname=esgi';
     $username = 'root';
     $password = 'root'; 

@@ -114,6 +114,7 @@ nav ul
 nav ul li
 {
     margin: 0 20px;
+    width: fit-content;
 }
   
 nav ul li a
@@ -363,6 +364,36 @@ footer a:hover
 .commentDisplay
 {
     float: left;
+    position: relative;
+    z-index: 9999;
+}
+
+.comment
+{
+    float: left;
+    position: relative;
+    z-index: 9999;
+}
+
+.commentForm
+{
+    display: none;
+}
+
+.commentDisplay:hover
+{
+    cursor: pointer;
+}
+  
+.commentForm textarea
+{
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+}
+  
+.submitComment {
+    margin-top: 10px;
 }
 
 /**************************** END OF COMMENT DISPLAY**************************/
@@ -379,3 +410,5 @@ footer a:hover
     font-size: 20px;
 }
 /**************************** END OF USERNAME DETAILS ************************/
+
+  

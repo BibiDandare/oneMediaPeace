@@ -34,6 +34,8 @@ CREATE TABLE Comment (
     modification_date DATE,
     moderated BOOLEAN,
     deleted BOOLEAN,
+    public BOOLEAN, /* new */
+    active BOOLEAN, /* new */
     FOREIGN KEY (account_id) REFERENCES Account(id),
     FOREIGN KEY (article_id) REFERENCES Article(id)
 );

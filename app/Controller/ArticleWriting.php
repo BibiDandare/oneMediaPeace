@@ -30,8 +30,6 @@
             $article = new ArticleModel($account, $_POST['articleWritingText'],
                                             $_POST['articleWritingTitle']);
             require("../DAO/ArticleRegisterDAO.php");
-            //require_once("ArticleController.php");
-            //save in the database, and add to Account articles[]
     
             echo "L'article ".$title." a bien été publié ✅";
         }

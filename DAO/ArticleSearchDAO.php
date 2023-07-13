@@ -34,7 +34,7 @@
                 $active = $article['active'];
 
                 $a = new ArticleModel($account, $content, $title);
-                $a->setTpm_id($id);
+                $a->setTmp_id($id);
                 $a->setCreationDate($creationDate);
                 $a->setModificationDate($modificationDate);
                 $a->setModerated($moderated);
