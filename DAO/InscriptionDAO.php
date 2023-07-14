@@ -11,13 +11,13 @@
 
         $db = new PDO($dsn, $username, $password);
 
-        $query = $db->prepare("INSERT INTO Account (id, account_password, 
+        $query = $db->prepare("INSERT INTO Account (account_password, 
                           username, email, creation_date, account_rights, 
-                          banned, reported, active) VALUES (:id, :account_password,
+                          banned, reported, active) VALUES (:account_password,
                           :username, :email, :creation_date, 
                           :account_rights, :banned, :reported, :active)");
 
-        $id = $account->getId();
+        //$id = $account->getId();
         $username = $account->getUsername();
         $email = $account->getEmail();
 
@@ -36,7 +36,7 @@
         $active = $account->getActive();
 
         // Liaison des paramètres
-        $query->bindParam(':id', $id);
+        //$query->bindParam(':id', $id);
         $query->bindParam(':username', $username);
         $query->bindParam(':email', $email);
         $query->bindParam(':account_password', $hashedPassword);

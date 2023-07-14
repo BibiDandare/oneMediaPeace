@@ -1,5 +1,5 @@
 CREATE TABLE Account (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     account_password VARCHAR(255),
     email VARCHAR(255),
     creation_date DATE,
@@ -12,7 +12,7 @@ CREATE TABLE Account (
 
 
 CREATE TABLE Article (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     account_id INT,
     title VARCHAR(255),
     content TEXT,
@@ -26,7 +26,7 @@ CREATE TABLE Article (
 );
 
 CREATE TABLE Comment (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     account_id INT,
     article_id INT,
     content TEXT,

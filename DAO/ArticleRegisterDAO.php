@@ -9,13 +9,13 @@
 
         $db = new PDO($dsn, $username, $password);
 
-        $query = $db->prepare("INSERT INTO Article (id, account_id, 
+        $query = $db->prepare("INSERT INTO Article (account_id, 
                           title, content, creation_date, modification_date, 
-                          moderated, deleted, public, active) VALUES (:id, :account_id,
+                          moderated, deleted, public, active) VALUES (:account_id,
                           :title, :content, :creation_date, 
                           :modification_date, :moderated, :deleted, :public, :active)");
 
-        $id = $article->getId();
+        //$id = $article->getId();
         $account_id = $article->getAccount()->getTmp_id();
         $title = $article->getTitle();
         $content = $article->getText();        
@@ -35,7 +35,7 @@
 
 
         // Liaison des paramètres
-        $query->bindParam(':id', $id);
+        //$query->bindParam(':id', $id);
         $query->bindParam(':account_id', $account_id);
         $query->bindParam(':title', $title);
         $query->bindParam(':content', $content);

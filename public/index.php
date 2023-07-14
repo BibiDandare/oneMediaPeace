@@ -118,7 +118,8 @@
                     "dashboard" => "../app/Controller/DashboardController.php",
                     "articleWriting" => "../app/Controller/ArticleWriting.php",
                      "articles" => "../app/Controller/ArticleController.php",
-                     "comment"  => "../app/Controller/CommentController.php"
+                     "comment"  => "../app/Controller/CommentController.php",
+                     "commentWriting" => "../app/Controller/CommentWriting.php"
                     );
 
                     if (array_key_exists($url, $routes))

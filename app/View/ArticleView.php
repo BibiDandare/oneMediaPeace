@@ -66,21 +66,23 @@
                 echo "<div class='articleDisplay'>".$this->article->getText()."</div>";
 
                 echo "<button id = 'commentsDiplayButton' class=
-                'comment'>Afficher les commentaires";
+                'comment'><a href='?comment'>Afficher les commentaires</a>";
                 echo "<div id='commentDiv' class='commentDiv'>";
-                require_once("../app/Controller/CommentController.php");
+                //require_once("../app/Controller/CommentController.php");
                 echo "</div></button>";
 
                 echo "<button id = 'commentsButton' class=
                 'commentDisplay'>Commenter</button>";
 
                 echo "<div class='commentForm'>
+                <form action='?commentWriting' method='POST'>
                         <textarea name='commentWritingText' placeholder='Ajouter un commentaire'></textarea>
-                        <button class='submitComment'>Publier</button>
+                        <input class='submitComment' type='submit' value='publier'>
+                </form>
                      </div>";
                 //faire une classe CommentWriting qui va réceptionner le formulaire, puis appeler
                 //CommentRegisterDAO.php
-                require_once("../DAO/CommentRegisterDAO.php");
+                //require_once("../Controller/CommentWriting.php");
 
             }
             /*
