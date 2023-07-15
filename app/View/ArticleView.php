@@ -28,6 +28,7 @@
             //ne pas afficher si l'article n'est pas validé par un modérateur
             //le faire dans le controller
 
+            //$_SESSION['currentArticle']
             $_SESSION['currentArticle'] = serialize($this->article);
 
 
@@ -60,7 +61,8 @@
                 echo "<div id='commentDiv' class='commentDiv'>";
                 include_once("../app/Controller/CommentController.php");
                 executeCommentController();
-                echo "</div><br><br>";
+                echo "</div>";
+                echo "<br><br>";
                 //faire une classe CommentWriting qui va réceptionner le formulaire, puis appeler
                 //CommentRegisterDAO.php
                 //require_once("../Controller/CommentWriting.php");

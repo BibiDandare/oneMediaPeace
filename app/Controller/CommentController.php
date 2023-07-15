@@ -51,9 +51,10 @@
             $article = unserialize($_SESSION['currentArticle']);
             //echo $article->getTmp_id();
 
-            $comments = [];
+            //$comments = [];
 
             require_once("../DAO/CommentSearchDAO.php");
+            $comments = executeCommentSearchDAO($article);
             //require_once("../View/CommentView.php");
 
             //if(empty($comments)){echo "viiiiiiideeeee";}
