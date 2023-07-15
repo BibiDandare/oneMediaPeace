@@ -380,6 +380,25 @@ footer a:hover
     display: none;
 }
 
+.commentsDiplayButton
+{
+    position: relative;
+}
+
+.commentDiv
+{
+    display: none;
+    position: relative;
+    bottom: 0;
+}
+
+/*
+.commentsDiplayButton + .commentDiv
+{
+    display: block;
+}
+*/
+
 .commentDisplay:hover
 {
     cursor: pointer;

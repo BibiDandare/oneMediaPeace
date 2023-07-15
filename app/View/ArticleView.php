@@ -30,27 +30,6 @@
 
             $_SESSION['currentArticle'] = serialize($this->article);
 
-            $textExemple = "Les Simpson (The Simpsons) sont une série télévisée
-            d'animation américaine1 créée par Matt Groening et diffusée pour la
-            première fois à partir du 17 décembre 1989 sur le réseau Fox. En
-            2020, elle est diffusée sur Disney+.
-
-            Elle met en scène les Simpson, stéréotype d'une famille de classe
-            moyenne américaine2. Leurs aventures servent une satire du mode de
-            vie américain. Les membres de la famille, sont Homer, Marge, Bart, 
-            Lisa, Maggie, ainsi que Abe, le père d'Homer.
-            
-            Depuis ses débuts, la série a récolté des dizaines de récompenses,
-            dont trente-deux Primetime Emmy Awards, trente Annie Awards et un
-            Peabody Award. Le Time Magazine du 31 décembre 1999 l'a désignée
-            comme la meilleure série télévisée du xxe siècle et elle a obtenu
-            une étoile sur le Hollywood Walk of Fame le 14 janvier 2000. 
-            « D'oh! », l'expression d'abattement d'Homer Simpson, est entrée 
-            dans la langue anglaise. Ce n'est pas le seul mot à être entré dans
-            le dictionnaire anglais, embiggen (« engrandi » en français) est un
-            mot inventé par les Simpson qui est aussi entré dans la langue 
-            anglaise. L'influence des Simpson s'exerce également sur d'autres 
-            sitcoms.";
 
             //switch($this->status)
             // {                
@@ -65,11 +44,8 @@
 
                 echo "<div class='articleDisplay'>".$this->article->getText()."</div>";
 
-                echo "<button id = 'commentsDiplayButton' class=
-                'comment'><a href='?comment'>Afficher les commentaires</a>";
-                echo "<div id='commentDiv' class='commentDiv'>";
-                //require_once("../app/Controller/CommentController.php");
-                echo "</div></button>";
+                echo "<button id='commentsDiplayButton' class=
+                'comment'>Afficher les commentaires</button>";
 
                 echo "<button id = 'commentsButton' class=
                 'commentDisplay'>Commenter</button>";
@@ -80,6 +56,11 @@
                         <input class='submitComment' type='submit' value='publier'>
                 </form>
                      </div>";
+
+                echo "<div id='commentDiv' class='commentDiv'>";
+                include_once("../app/Controller/CommentController.php");
+                executeCommentController();
+                echo "</div><br><br>";
                 //faire une classe CommentWriting qui va réceptionner le formulaire, puis appeler
                 //CommentRegisterDAO.php
                 //require_once("../Controller/CommentWriting.php");
@@ -100,7 +81,9 @@
                 echo "Cet article à été supprimé";
             }
 
-            
+            //exit();
+            //quit();
+            return;
         }
 
         // public function getFirstName()
