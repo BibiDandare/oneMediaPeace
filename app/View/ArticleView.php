@@ -24,12 +24,19 @@
 
         public function printView()
         {
-            //TOTO
+            //TODO
             //ne pas afficher si l'article n'est pas validé par un modérateur
             //le faire dans le controller
+            /*
+            if (!isset($_SESSION['currentArticle']))
+            {
+                $_SESSION['currentArticle'] = array();
+            }
+            */
 
-            //$_SESSION['currentArticle']
             $_SESSION['currentArticle'] = serialize($this->article);
+
+            $temporary = $this->article->getTmp_id();
 
 
             //switch($this->status)
@@ -51,8 +58,12 @@
                 echo "<button id = 'commentsButton' class=
                 'commentDisplay'>Commenter</button>";
 
+                echo "<button>Modifier</button>";
+                echo "<button>Supprimer</button>";
+
                 echo "<div class='commentForm'>
                 <form action='?commentWriting' method='POST'>
+                        <input type='hidden' name='articleID' value='".$temporary."'>
                         <textarea name='commentWritingText' placeholder='Ajouter un commentaire'></textarea>
                         <input class='submitComment' type='submit' value='publier'>
                 </form>

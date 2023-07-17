@@ -9,6 +9,7 @@
     {
         $content = $_POST["commentWritingText"];
         $article = unserialize($_SESSION['currentArticle']);
+        $articleID = $_POST["articleID"];
 
         if (empty($content))
         {
@@ -18,8 +19,8 @@
         {
             $comment = new CommentModel($article, 
                         $_POST['commentWritingText']);
-            $comment->setTmp_id_article($article->getTmp_id());
-            //$comment->setTmp_id_account($article->getTpm_id());
+           //$comment->setTmp_id_article($article->getTmp_id());
+            $comment->setTmp_id_article($articleID);
             $comment->setTmp_id_account($article->getAccount()->getTmp_id());
 
             require_once("../DAO/CommentRegisterDAO.php");
