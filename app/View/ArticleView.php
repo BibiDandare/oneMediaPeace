@@ -37,6 +37,7 @@
             $_SESSION['currentArticle'] = serialize($this->article);
 
             $temporary = $this->article->getTmp_id();
+            $temporary_text = $this->article->getText();
 
 
             //switch($this->status)
@@ -57,27 +58,33 @@
 
                 echo "<button id = 'commentsButton' class=
                 'commentDisplay'>Commenter</button>";
-
-                echo "<button>Modifier</button>";
+                
+                echo "<div class='articleUpdate'>";
+                echo "<form action='?articleModification' method='POST'>
+                <input type='hidden' name='modification_articleID' value='".$temporary."'>
+                <input type='hidden' name='modification_articleTEXT' value='".$temporary_text."'>
+                <input type='submit' value='Modifier'>
+                </form>";
                 echo "<button>Supprimer</button>";
+                echo "</div>";
+
 
                 echo "<div class='commentForm'>
-                <form action='?commentWriting' method='POST'>
+                    <form action='?commentWriting' method='POST'>
                         <input type='hidden' name='articleID' value='".$temporary."'>
                         <textarea name='commentWritingText' placeholder='Ajouter un commentaire'></textarea>
                         <input class='submitComment' type='submit' value='publier'>
-                </form>
+                    </form>
                      </div>";
+                
 
                 echo "<div id='commentDiv' class='commentDiv'>";
                 include_once("../app/Controller/CommentController.php");
                 executeCommentController();
                 echo "</div>";
                 echo "<br><br>";
-                //faire une classe CommentWriting qui va réceptionner le formulaire, puis appeler
-                //CommentRegisterDAO.php
-                //require_once("../Controller/CommentWriting.php");
 
+                
             }
             /*
             else if(!$this->article->getDeleted() && !$this->article->getModerated())

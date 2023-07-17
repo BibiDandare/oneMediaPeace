@@ -119,7 +119,8 @@
                     "articleWriting" => "../app/Controller/ArticleWriting.php",
                      "articles" => "../app/Controller/ArticleController.php",
                      "comment"  => "../app/Controller/CommentController.php",
-                     "commentWriting" => "../app/Controller/CommentWriting.php"
+                     "commentWriting" => "../app/Controller/CommentWriting.php",
+                     "articleModification" => "../app/Controller/ArticleModification.php"
                     );
 
                     if (array_key_exists($url, $routes))

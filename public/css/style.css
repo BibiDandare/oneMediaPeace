@@ -354,7 +354,17 @@ footer a:hover
     margin-top: 5px;
 }
   
-
+.articleUpdate
+{
+    white-space: nowrap; 
+}
+  
+.articleUpdate form, .articleUpdate button
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
 /************************** END OF ARTICLE WRITING ***************************/
 
 
