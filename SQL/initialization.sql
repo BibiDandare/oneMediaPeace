@@ -7,7 +7,7 @@ CREATE TABLE Account (
     account_rights VARCHAR(255),
     banned BOOLEAN,
     reported BOOLEAN,
-    active BOOLEAN /* new */
+    active BOOLEAN
 );
 
 
@@ -20,8 +20,8 @@ CREATE TABLE Article (
     modification_date DATE,
     moderated BOOLEAN,
     deleted BOOLEAN,
-    public BOOLEAN, /* new */
-    active BOOLEAN, /* new */
+    public BOOLEAN,
+    active BOOLEAN,
     FOREIGN KEY (account_id) REFERENCES Account(id)
 );
 
@@ -34,8 +34,8 @@ CREATE TABLE Comment (
     modification_date DATE,
     moderated BOOLEAN,
     deleted BOOLEAN,
-    public BOOLEAN, /* new */
-    active BOOLEAN, /* new */
+    public BOOLEAN,
+    active BOOLEAN,
     FOREIGN KEY (account_id) REFERENCES Account(id),
     FOREIGN KEY (article_id) REFERENCES Article(id)
 );

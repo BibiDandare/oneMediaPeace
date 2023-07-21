@@ -1,10 +1,9 @@
 <?php
     //echo "connexion réussie";
     
-    // connexion database
     $dsn = 'mysql:host=localhost;dbname=esgi';
-    $username = 'root';
-    $password = 'root'; 
+    $username = 'biram';
+    $password = 'biramdb'; 
 
     try
     {
@@ -23,13 +22,11 @@
     $query->bindParam(':email', $email);
     $query->execute();
 
-    // Vérification du résultat de la requête
     if ($query->rowCount() > 0)
     {
         $account = $query->fetch(PDO::FETCH_ASSOC);
         $hashedPassword = $account['account_password'];
 
-        // Vérification du mot de passe
         if (password_verify($password, $hashedPassword))
         {
             echo "Connexion réussie ! ";
@@ -54,6 +51,14 @@
             $currentAccount->setActive($account['active']);
 
             $_SESSION['currentAccount'] = serialize($currentAccount);
+
+            sleep(1);
+
+            echo "
+            <script>
+                window.location.href = 'http://biram.c2lr.eu';
+            </script>
+            ";
 
         }
         else

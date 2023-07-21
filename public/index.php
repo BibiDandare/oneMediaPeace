@@ -107,9 +107,7 @@
                         $url = "";
                     }
                     
-                    //redirection toward the right page
 
-                    // faire une route/fichier pour le boutton sign out
                     $routes = array(
                              '' => "../app/Controller/DashboardController.php",
                       "sign-in" => "../app/Controller/Login.php",
@@ -120,7 +118,8 @@
                      "articles" => "../app/Controller/ArticleController.php",
                      "comment"  => "../app/Controller/CommentController.php",
                      "commentWriting" => "../app/Controller/CommentWriting.php",
-                     "articleModification" => "../app/Controller/ArticleModification.php"
+                     "articleModification" => "../app/Controller/ArticleModification.php",
+                     "articleDelete" => "../app/Controller/ArticleDelete.php"
                     );
 
                     if (array_key_exists($url, $routes))

@@ -12,16 +12,11 @@
         $articleID   = $_SESSION["articleID"];
         $articleTEXT = $_SESSION["articleTEXT"];
 
-        //$articleID_1   = $articleID;
-        //$articleTEXT_1 = $articleTEXT;
 
         echo "<div class='articleWritingForm'>
                 <form action='' method='POST'>
                     <label for='articleModificationText'>Contenu de l'article :</label><br>
-                    <textarea id='articleModificationText' name='articleModificationText' rows='20' cols='100' required>
-                    ".$articleTEXT."
-                    </textarea><br>
-            
+                    <textarea id='articleModificationText' name='articleModificationText' rows='20' cols='100' required>".$articleTEXT."</textarea><br>
                     <input type='submit' value='Publier'>
                 </form>
             </div>";

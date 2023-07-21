@@ -1,8 +1,8 @@
 <?php
     
     $dsn = 'mysql:host=localhost;dbname=esgi';
-    $username = 'root';
-    $password = 'root'; 
+    $username = 'biram';
+    $password = 'biramdb'; 
 
     try
     {

@@ -45,7 +45,7 @@
             $this->title = $title;
             $this->text = $text;
 
-            self::$id++;
+            //self::$id++;
             $this->creationDate = date('m/d/Y h:i:s a', time());
             $this->modificationDate = date('m/d/Y h:i:s a', time());
 

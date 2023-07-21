@@ -1,22 +1,33 @@
 <?php
-    //va chercher le nom prenom et les articles(tableau parce que plusieurs aticle) dans 
-    // la base de données, et les passe au modèle
-    //require_once $_SERVER['DOCUMENT_ROOT']."/../app/Model/DashboardModel.php";
-    require_once "../app/Model/DashboardModel.php";
+    require_once "../app/Model/ArticleModel.php";
     require_once "../app/View/DashboardView.php";
+    require_once "../app/Model/AccountModel.php";
 
     class DashboardController
-    {   
-        //use Models\DashboardModel;
-
+    {
         public function handle()
-        {   // passé en paramètres du DashboardModel un tableau contenant les
-            // articles les plus récents de la base de données
-            $d = new DashboardModel();
-            $d_view = new DashboardView($d);
-            $d_view->printView();
+        {
+            //$account = unserialize($_SESSION['currentAccount']);
+
+            $articles = [];
+
+            require_once("../DAO/DashboardDAO.php");
+
+            if(!empty($articles))
+            {
+                foreach($articles as $a)
+                {
+                    $a_view = new DashboardView($a);
+                    $a_view->printView();
+                }
+            }
+            else
+            {
+                echo "Il n'y a aucun articles disponibles pour le moment ✍️...";
+            }
         }
     }
-    $dashboard = new DashboardController();
-    $dashboard->handle();
+
+    $article = new DashboardController();
+    $article->handle();
 ?>

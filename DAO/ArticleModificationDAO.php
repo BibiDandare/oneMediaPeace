@@ -1,8 +1,7 @@
 <?php
-    // Connexion à la base de données
     $dsn = 'mysql:host=localhost;dbname=esgi';
-    $username = 'root';
-    $password = 'root';
+    $username = 'biram';
+    $password = 'biramdb';
 
     try
     {
@@ -22,6 +21,14 @@
         $stmt->execute();
 
         echo "L'article a été mis à jour avec succès.";
+        
+        sleep(2);
+
+            echo "
+            <script>
+                window.location.href = 'http://biram.c2lr.eu/?articles';
+            </script>
+            ";
     }
     catch (PDOException $e)
     {

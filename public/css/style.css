@@ -21,6 +21,7 @@ header
     display: flex;
     align-items: center;
     background-color: rgb(51, 0, 25);
+    /*background-color:white;*/
     color: rgb(204, 204, 204);
     justify-content: space-between;
     width: auto;
@@ -440,4 +441,46 @@ footer a:hover
 }
 /**************************** END OF USERNAME DETAILS ************************/
 
-  
+/**************************** RESPONSIVE PARAMETERS *************************/
+
+@media screen and (max-width: 768px) {
+    .headerTitle {
+        font-size: 22px;
+    }
+
+    .logo {
+        width: 60px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .content {
+        margin-top: 10%;
+    }
+
+    .articleWritingForm {
+        margin-top: 10%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .headerTitle {
+        font-size: 18px;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .articleDisplay {
+        font-size: 14px;
+    }
+
+    .articleWritingForm {
+        margin-top: 20%;
+        font-size: 16px;
+    }
+}
+/************************ END OF RESPONSIVE PARAMETERS ***********************/

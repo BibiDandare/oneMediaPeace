@@ -4,8 +4,8 @@
     function executeCommentSearchDAO($article)
     {
         $dsn = 'mysql:host=localhost;dbname=esgi';
-        $username = 'root';
-        $password = 'root';
+        $username = 'biram';
+        $password = 'biramdb';
 
         $number = $article->getTmp_id();
         $comments = [];

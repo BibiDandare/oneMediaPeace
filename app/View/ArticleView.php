@@ -3,19 +3,8 @@
 
     class ArticleView
     {
-        /*
-        private String $firstName;
-        private String $lastName;
-        private String $status;
-        private String $title;
-        private String $text;
-        private $comments;
-        private String $creationDate;
-        private String $modificationDate;
-        */
         private ArticleModel $article;
 
-        //passer l'object en paramètre du constructeur
         public function __construct(ArticleModel $article)
         {
             $this->article = $article;
@@ -24,25 +13,12 @@
 
         public function printView()
         {
-            //TODO
-            //ne pas afficher si l'article n'est pas validé par un modérateur
-            //le faire dans le controller
-            /*
-            if (!isset($_SESSION['currentArticle']))
-            {
-                $_SESSION['currentArticle'] = array();
-            }
-            */
-
             $_SESSION['currentArticle'] = serialize($this->article);
 
             $temporary = $this->article->getTmp_id();
             $temporary_text = $this->article->getText();
 
 
-            //switch($this->status)
-            // {                
-                //case "allowed":
             if(!$this->article->getDeleted() && !$this->article->getModerated())
             {
                 //echo $this->text;
@@ -65,7 +41,10 @@
                 <input type='hidden' name='modification_articleTEXT' value='".$temporary_text."'>
                 <input type='submit' value='Modifier'>
                 </form>";
-                echo "<button>Supprimer</button>";
+                echo "<form action='?articleDelete' method='POST'>
+                        <input type='hidden' name='deleting_articleID' value='".$temporary."'>
+                        <input type='submit' value='Supprimer'>
+                    </form>";
                 echo "</div>";
 
 
@@ -101,41 +80,7 @@
                 echo "Cet article à été supprimé";
             }
 
-            //exit();
-            //quit();
             return;
         }
-
-        // public function getFirstName()
-        // {
-        //     return $this->firstName;
-        // }
-
-        // public function setFirstName(String $firstName)
-        // {
-        //     $this->firstName = $firstName;
-        // }
-
-        // public function getLastName()
-        // {
-        //     return $this->firstName;
-        // }
-
-        // public function setLastName(String $firstName)
-        // {
-        //     $this->firstName = $firstName;
-        // }
-
-        // public function getText()
-        // {
-        //     return $this->text;
-        // }
-
-        // public function setText(String $text)
-        // {
-        //     //TODO
-        //     //c'est dans le ?Model que se fait la modification d'un article
-        //     $this->text = $text;
-        // }
     }
 ?>

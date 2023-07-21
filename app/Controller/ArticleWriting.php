@@ -32,6 +32,15 @@
             require("../DAO/ArticleRegisterDAO.php");
     
             echo "L'article ".$title." a bien été publié ✅";
+
+            
+            sleep(2);
+
+            echo "
+            <script>
+                window.location.href = 'http://biram.c2lr.eu/?articles';
+            </script>
+            ";
         }
     }    
 ?>
